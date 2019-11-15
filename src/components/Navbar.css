@@ -57,7 +57,9 @@
   width: 97px;
   height: 100px;
 }
-
+.Navbar .flex-item-center {
+  width: 100%;
+}
 /**
   *
   * Smaller screen + Mobile
