@@ -1,12 +1,13 @@
 .BannerColumn {
   display: flex;
   flex-direction: row;
-  margin: 30px;
+  margin: 0px 30px;
 }
 
 .banner-item {
   flex-grow: 1;
   width: 33.3333%;
+  padding-bottom: 10px;
 }
 
 .banner-item + .banner-item {
@@ -41,7 +42,7 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 414px) {
   .BannerColumn {
     flex-direction: column; /* change the direction of the container */
     width: auto; /* overrides the height of 80px set for large screens */

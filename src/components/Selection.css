@@ -58,17 +58,11 @@ ul.slider-tab li:hover a {
   margin-bottom: 15px;
 }
 
-.ProductGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 @media screen and (max-width: 1024px) {
   .slider-tab.flex-item,
   .Selection {
     flex-direction: column; /* change the direction of the container */
-    width: auto; /* overrides the height of 80px set for large screens */
+    width: 100vw; /* overrides the height of 80px set for large screens */
   }
   .slider-tab.flex-item li {
     margin: 5px;
