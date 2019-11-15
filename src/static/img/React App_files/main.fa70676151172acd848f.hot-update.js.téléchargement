@@ -1,0 +1,19 @@
+webpackHotUpdate("main",{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/components/Navbar.css":
+/*!**************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/components/Navbar.css ***!
+  \**************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, ".TopHeader {\r\n  display: flex;\r\n  height: var(--height-TopHeader); /* set a fixed height */\r\n  background-color: var(--bg-color-lg-screens);\r\n  font-size: 10px;\r\n  justify-content: space-between;\r\n  width: 1200px;\r\n}\r\n\r\n.Navbar {\r\n  display: flex;\r\n  height: var(--height-lg-screens); /* set a fixed height */\r\n  background-color: var(--bg-color-lg-screens);\r\n  justify-content: space-between;\r\n}\r\n\r\n.navbar-links {\r\n  display: flex;\r\n}\r\n\r\n.navbar-home,\r\n.navbar-link {\r\n  display: flex;\r\n  align-items: center; /* we want children to be centered vertically*/\r\n  justify-content: center;\r\n  padding: 20px; /* with paddings on the sides */\r\n}\r\n\r\n.navbar-link a,\r\n.flex-item-right a {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.navbar-home {\r\n  height: var(--height-lg-screens);\r\n  padding-right: 50px;\r\n}\r\n\r\n.navbar-link a:hover {\r\n  color: #d8b7a2;\r\n}\r\n\r\n.toggle {\r\n  display: none;\r\n  padding: 8px;\r\n  font-size: 16px;\r\n}\r\n\r\n.toggleSubMenu {\r\n  display: block;\r\n  padding: 8px 8px 5px 8px;\r\n  font-size: 16px;\r\n}\r\n\r\n.logo {\r\n  width: 97px;\r\n  height: 100px;\r\n}\r\n\r\n/**\r\n  *\r\n  * Smaller screen + Mobile\r\n  *\r\n  */\r\n@media screen and (max-width: 1199px) {\r\n  .Navbar {\r\n    flex-direction: column; /* change the direction of the container */\r\n    height: auto; /* overrides the height for large screens */\r\n    background-color: white;\r\n  }\r\n\r\n  .TopHeader {\r\n    display: none;\r\n  }\r\n\r\n  .navbar-link {\r\n    align-items: center;\r\n    padding: 5px;\r\n    justify-content: left;\r\n  }\r\n  .navbar-links {\r\n    flex-direction: column;\r\n  }\r\n\r\n  .navbar-links.closed {\r\n    /* when toggled, hide the main nav*/\r\n    display: none;\r\n  }\r\n\r\n  .toggle {\r\n    display: block;\r\n  }\r\n  .toggleSubMenu {\r\n    padding: 0px;\r\n  }\r\n\r\n  .navbar-link {\r\n    border-bottom: none;\r\n  }\r\n\r\n  .navbar-links.closed {\r\n    display: block;\r\n    max-height: 0;\r\n    overflow: hidden;\r\n    transition: max-height 100ms ease-in-out;\r\n  }\r\n\r\n  .navbar-links.opened {\r\n    max-height: 1000px;\r\n    transition: max-height 400ms ease-in-out;\r\n  }\r\n}\r\n", ""]);
+
+
+
+/***/ })
+
+})
+//# sourceMappingURL=main.fa70676151172acd848f.hot-update.js.map

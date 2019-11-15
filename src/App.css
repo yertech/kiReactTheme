@@ -1,22 +1,99 @@
-.App {
-  text-align: center;
+:container {
+  --height-TopHeader: 45px;
+  --height-header: 100px;
+  --width-item: 150px;
+  --bg-color-lg-screens: white;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.center {
+  display: flex;
+  width: 1200px;
 }
 
-.App-link {
-  color: #09d3ac;
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-item-left,
+.flex-item-center,
+.flex-item-right {
+  display: flex;
+  align-items: center;
+}
+
+.flex-item-center {
+  justify-content: center;
+}
+
+.flex-item-left {
+  justify-content: flex-start;
+  padding-left: 20vw;
+}
+
+.flex-item-right {
+  justify-content: flex-end;
+}
+
+/**
+*
+* Smaller screen + Mobile
+*
+*/
+@media screen and (max-width: 1024px) {
+  .flex-item-center {
+    flex-direction: column;
+  }
+
+  .center {
+    width: auto;
+  }
+}
+
+/* reset style */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #484848;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
 }

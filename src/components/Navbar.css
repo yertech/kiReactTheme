@@ -1,0 +1,116 @@
+.TopHeader {
+  display: flex;
+  height: var(--height-TopHeader); /* set a fixed height */
+  background-color: var(--bg-color-lg-screens);
+  font-size: 10px;
+  justify-content: space-between;
+  width: 1200px;
+}
+
+.Navbar {
+  display: flex;
+  height: var(--height-lg-screens); /* set a fixed height */
+  background-color: var(--bg-color-lg-screens);
+  justify-content: space-between;
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.navbar-home,
+.navbar-link {
+  display: flex;
+  align-items: center; /* we want children to be centered vertically*/
+  justify-content: center;
+  padding: 20px; /* with paddings on the sides */
+}
+
+.navbar-link a,
+.flex-item-right a {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-home {
+  height: var(--height-lg-screens);
+  padding-right: 50px;
+}
+
+.navbar-link a:hover {
+  color: #d8b7a2;
+}
+
+.toggle {
+  display: none;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.toggleSubMenu {
+  display: block;
+  padding: 8px 8px 5px 8px;
+  font-size: 16px;
+}
+
+.logo {
+  width: 97px;
+  height: 100px;
+}
+
+/**
+  *
+  * Smaller screen + Mobile
+  *
+  */
+@media screen and (max-width: 1024px) {
+  .Navbar {
+    flex-direction: column; /* change the direction of the container */
+    height: auto; /* overrides the height for large screens */
+    background-color: white;
+  }
+
+  .TopHeader {
+    display: none;
+  }
+
+  .navbar-link {
+    align-items: center;
+    padding: 5px;
+    justify-content: left;
+  }
+  .navbar-links {
+    flex-direction: column;
+  }
+
+  .navbar-links.closed {
+    /* when toggled, hide the main nav*/
+    display: none;
+  }
+
+  .toggle {
+    display: block;
+  }
+  .toggleSubMenu {
+    padding: 0px;
+  }
+
+  .navbar-link {
+    border-bottom: none;
+  }
+
+  .navbar-links.closed,
+  .navbar-links.closed li {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+  }
+
+  .navbar-links.opened,
+  .navbar-links.opened li {
+    display: block;
+    max-height: 600px;
+    transition: max-height 0.6s ease-in-out;
+  }
+}

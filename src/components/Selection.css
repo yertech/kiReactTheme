@@ -1,0 +1,85 @@
+.Selection {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin-top: 30px;
+}
+
+.tab_title .title {
+  background-color: #ffffff;
+  display: inline-block;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 4px;
+  margin-bottom: 5px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.tab_title {
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.tab_title p {
+  border-bottom: 2px solid #202020;
+  margin: 0 auto;
+  position: relative;
+  top: -18px;
+  width: 100%;
+  max-width: 390px;
+  z-index: 1;
+}
+
+ul.slider-tab li {
+  border: 1px solid #dddddd;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  line-height: 35px;
+  margin-right: 16px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+ul.slider-tab li a {
+  color: #927777;
+}
+
+ul.slider-tab li.active a,
+ul.slider-tab li:hover a {
+  color: #202020;
+}
+.flex-item-centre.tab_title {
+  margin-bottom: 15px;
+}
+
+.ProductGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1024px) {
+  .slider-tab.flex-item,
+  .Selection {
+    flex-direction: column; /* change the direction of the container */
+    width: auto; /* overrides the height of 80px set for large screens */
+  }
+  .slider-tab.flex-item li {
+    margin: 5px;
+  }
+
+  .Selection .flex-item-centre.tab_title {
+    margin-bottom: 15px;
+    padding: 0px 30px 0px 30px;
+  }
+
+  .Selection .flex-item-center {
+    padding-left: 0px;
+  }
+}

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <!-- <link rel="apple-touch-icon" href="logo192.png" /> -->
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style>body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+</style><style>:root {
+  --height-TopHeader: 45px;
+  --height-header: 100px;
+  --width-item: 150px;
+  --bg-color-lg-screens: white;
+}
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  width: 1200px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-item-left,
+.flex-item-center,
+.flex-item-right {
+  display: flex;
+  align-items: center;
+}
+
+.flex-item-center {
+  justify-content: center;
+}
+
+.flex-item-left {
+  justify-content: flex-start;
+  padding-left: 20vw;
+}
+
+.flex-item-right {
+  justify-content: flex-end;
+}
+
+/**
+*
+* Smaller screen + Mobile
+*
+*/
+@media screen and (max-width: 1199px) {
+  .flex-item-center {
+    flex-direction: column;
+  }
+
+  .center {
+    width: auto;
+  }
+}
+
+/* reset style */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #484848;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+</style><style>.TopHeader {
+  display: flex;
+  height: var(--height-TopHeader); /* set a fixed height */
+  background-color: var(--bg-color-lg-screens);
+  font-size: 10px;
+  justify-content: space-between;
+  width: 1200px;
+}
+
+.Navbar {
+  display: flex;
+  height: var(--height-lg-screens); /* set a fixed height */
+  background-color: var(--bg-color-lg-screens);
+  justify-content: space-between;
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.navbar-home,
+.navbar-link {
+  display: flex;
+  align-items: center; /* we want children to be centered vertically*/
+  justify-content: center;
+  padding: 20px; /* with paddings on the sides */
+}
+
+.navbar-link a,
+.flex-item-right a {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-home {
+  height: var(--height-lg-screens);
+  padding-right: 50px;
+}
+
+.navbar-link a:hover {
+  color: #d8b7a2;
+}
+
+.toggle {
+  display: none;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.toggleSubMenu {
+  display: block;
+  padding: 8px 8px 5px 8px;
+  font-size: 16px;
+}
+
+.logo {
+  width: 97px;
+  height: 100px;
+}
+
+/**
+  *
+  * Smaller screen + Mobile
+  *
+  */
+@media screen and (max-width: 1199px) {
+  .Navbar {
+    flex-direction: column; /* change the direction of the container */
+    height: auto; /* overrides the height for large screens */
+    background-color: white;
+  }
+
+  .TopHeader {
+    display: none;
+  }
+
+  .navbar-link {
+    align-items: center;
+    padding: 5px;
+    justify-content: left;
+  }
+  .navbar-links {
+    flex-direction: column;
+  }
+
+  .navbar-links.closed {
+    /* when toggled, hide the main nav*/
+    display: none;
+  }
+
+  .toggle {
+    display: block;
+  }
+  .toggleSubMenu {
+    padding: 0px;
+  }
+
+  .navbar-link {
+    border-bottom: none;
+  }
+
+  .navbar-links.closed {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 100ms ease-in-out;
+  }
+
+  .navbar-links.opened {
+    max-height: 1000px;
+    transition: max-height 400ms ease-in-out;
+  }
+}
+</style><style>.heroTxt {
+  padding: 80px 15px 15px 30vw;
+}
+
+.Hero {
+  display: flex;
+  width: 1200px;
+}
+
+@media screen and (max-width: 1199px) {
+  .Hero {
+    flex-direction: column; /* change the direction of the container */
+    width: auto; /* overrides the height of 80px set for large screens */
+  }
+
+  .heroTxt {
+    padding: 30px;
+  }
+}
+</style><style>.BannerColumn {
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+}
+
+.banner-item {
+  flex-grow: 1;
+  width: 33.3333%;
+}
+
+.banner-item + .banner-item {
+  margin-left: 30px;
+}
+
+.banner-item img {
+  width: 100%;
+}
+
+.home-banners .overlay .banner-hover {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.5s ease-out 0s;
+  opacity: 0;
+  z-index: 1;
+}
+
+.home-banners .overlay {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.home-banners .overlay:hover .banner-hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1199px) {
+  .BannerColumn {
+    flex-direction: column; /* change the direction of the container */
+    width: auto; /* overrides the height of 80px set for large screens */
+  }
+
+  .banner-item {
+    width: 100%;
+  }
+
+  .banner-item + .banner-item {
+    margin-left: 0px;
+  }
+}
+</style><style>.product {
+  flex: 0 1 25%;
+  margin-bottom: 2%;
+  margin-top: 4%;
+}
+.product img {
+  width: 270px;
+}
+</style><style>.Selection {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin-top: 30px;
+}
+
+.tab_title .title {
+  background-color: #ffffff;
+  display: inline-block;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 4px;
+  margin-bottom: 5px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.tab_title {
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.tab_title p {
+  border-bottom: 2px solid #202020;
+  margin: 0 auto;
+  position: relative;
+  top: -18px;
+  width: 100%;
+  max-width: 390px;
+  z-index: 1;
+}
+
+ul.slider-tab li {
+  border: 1px solid #dddddd;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  line-height: 35px;
+  margin-right: 16px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+ul.slider-tab li a {
+  color: #927777;
+}
+
+ul.slider-tab li.active a,
+ul.slider-tab li:hover a {
+  color: #202020;
+}
+.flex-item-centre.tab_title {
+  margin-bottom: 15px;
+}
+
+.ProductGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1199px) {
+  .Selection,
+  .ProductGrid,
+  .slider-tab.flex-item {
+    flex-direction: column; /* change the direction of the container */
+    width: auto; /* overrides the height of 80px set for large screens */
+  }
+  .slider-tab.flex-item li {
+    margin: 5px;
+  }
+
+  .Selection .flex-item-center {
+    padding-left: 0px;
+  }
+}
+</style><style>.Newsletter {
+  display: flex;
+  margin-top: 30px;
+  min-height: 240px;
+  background-color: #cfae98;
+  width: 100%;
+  align-items: center;
+}
+
+.Newsletter .form-subscribe {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.Newsletter .input-box {
+  max-width: 733px;
+  width: 100%;
+}
+
+.Newsletter .input-text {
+  color: white;
+
+  background-color: transparent;
+  font-size: 14px;
+  height: 80px;
+  letter-spacing: 3px;
+  line-height: 80px;
+  padding: 0 115px 0 40px;
+  text-transform: uppercase;
+  border: 1px solid #dddddd;
+  font-weight: lighter;
+  width: 58%;
+}
+
+.Newsletter .input-text::placeholder {
+  color: white;
+}
+
+.button.newsletter {
+  background-color: transparent;
+  font-size: 14px;
+  height: 82px;
+  letter-spacing: 3px;
+  line-height: 80px;
+  color: #ffffff;
+  border-top: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  font-weight: lighter;
+  padding: 0 30px;
+}
+</style><script charset="utf-8" src="./React App_files/main.fa70676151172acd848f.hot-update.js.téléchargement"></script></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="root"><div class="TopHeader"><div class="flex-item-center">VENTE D'OBJETS DE DÉCORATION MADE IN BALI ● SHIPPING WORLDWIDE</div><div class="flex-item-right navbar-link"><a href="http://localhost:3000/">MENU<button class="toggleSubMenu"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button></a></div></div><nav class="Navbar center"><div class="flex-item-center"><div class="navbar-home"><a href="http://localhost:3000/"><img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGEAAABkCAYAAACWy14QAAAABmJLR0QA/wD/AP+gvaeTAAAK2klEQVR42u1dCZBcRRl+2Y0GPEENiTuvX89lgq6IGMVSUmQFxAMiWIYoEQvFYHFFKQGJgcIYEAQKMIVCRaIcFS5LLZRCq7hKQE4xRcAo15oKOURLIolsgnFD+L/3/rfb0+nZeTvvmPcm/Vd17dTsm57u/+/++/uvHsexZMmSJUuWLFmyZMmSJUuWLFmyZMmSpbTIdd1SxfMWVIQ4vyLlmWUhjq719QnLmZhUqVSmE2NPpHYDtb9SW0HM3tP/nxCH14R4f/is53l703ufK0t5OT33OLVhajvxubLnnUd9TbEcjUYTiJEHg5HEuOd9Jkq5it5bREyu6is/FIiJqtXq26uedyR99lLq51FqL1Nf8y2Lm1C9Xn8bMehUXu1YvYPEwO9LKd+b1HdMnz79raSiPjWW4HZLmjJlypt9VeF5W6j9h9oyYv5M7AjLnQzUTlWIrxHD1xPj76Z2TLlc3mPAcSaS7t6fXk+1LEqRhBB9xPQ7aQc8WHHdA6G76fXxJJRf0/vPkWAWQj1ZTqVEpOM/T4zeSEw/m4RRo9dLWRVtICGcTMyflJOh9tL5cRIQV1cJACsciAc6n9piYvw2ai9BIH19fW/KHVjwvH4a30rA3m6BnYCJ99FO+ARDz//Se0uginJvpwixlpDbBYUGCzSJ5cD9ZFgdTczfRLvgR7VabZ/C7OBq1SMhPENzuAnAoXgqSIhTSLd+Ea/LrjsLEyqgGp2JedACehIWO73VUzh/DsHNvQA/i7qT+ydPfgup0HtIAEMwJEkoVxRqAsD7pI6egCCKfKhhEZEAbmNrHu0rhdKlPOhjio4ufEMycCRiPltJMPvmdcWUAT+rpdI0H1XwyqFz4ahugHm0qC5TdsOjeTyoe2lgD7DH8h/KYJd1i61D4OLTNJ/tI3OT8qy8rZJzFcajPV0vldxus/qrUs6jue3gOW6BGyYXA0NwpWGF0GuCdR/uVvcLu90DVSvlz/NhEQdqaHQXCHGO0+UEo5Pn+/+q676ns3pSiK9qauil3CKHhO0H3/0S2A7XdtIY25NjAjsbWuBr6XriWAjm/GrHYiBkSX5nFwHQebC7ZDnQXK8bORs877zMB+DHhUn1GISwotVnPc97H+2W0/zmebNxsGfl2mD1CRi9jtotpVLpnTEW4feUeT+b/cEkxLcNAnhNSnlAiwPtUAXiqe3vGRymPzR8729i2A2z1L5o7h/KTAAzZsx4g2oRK+32loyANe15mw2f3emk6LOHzaLkIjUsnEqlIttGhqOuGaiki7LUhXMMkwFU2y/K52nFvJtW5WFIQaFJ/IE/vy3VXUAwEmM0CZ929Udi2AxnKH0NduRAUtrSNlXEFfz5TRmoo5lKblPYbomzAxEd9MOgYX+Vyv5ZCeFpbSKb61OnTm7zoPwVY+31GQGKSRykWYYsjyRUoA80RnmxIH10US7v5etRRQjEyBtjbOdHOoYuEqABx5lYCs6bkB+3ZrELPmkwzubHEMKqMOe0oO6LI1nNhfzYkIXz6txdDjY6ZNvuT4iHWQiPjGWZQ9fWPG+G3mhnfhDplCa3AvKGxmpJ8AMZJFUpT4DVHPJDT15OYyfcpgsBOjGu6U+CvHeMZ243oRqlIYfpeiT9smDPafF8sHikvDkB9bwH51FtVNTzl9IWwgZ9MnFiyDCWGGPfMaaVK+W/WjEVO4P73BxFCEkhMhhpSOFUNMPi1AQAE98wkR1xEAbyeaIYetP6+t6F2K7yvUinPB4ZcqjMUc6lHljf/Mww1By7nb9BK//L9PcppY/hpAxEAIskgEoU/X2wQQgvx+xzOfdz1xhnwjuQRKx85/0w+MZQEfsi79XkF9LdLUklH6tCGGsu8ZFAcADph/L6mINfGjLW+H/X/QAsUTVmDbdJDGBxaoMKS8jjS32tUfpdmSYyOsOwE2Lhe1IpF3I/jxkmNpfaK/x/BFDmJsCsBQ2LKKGoGBe5hP0+maYQLjAIYU1MnL3QMPBe9niGRuEatUgwptBPbxBCqTQtgW57NM9w5kKIZZywCwF2wjPsAtibXv9e+445ialU7UxIQghw2TSgRc97MM2DeZFBCP+OuY2PC9EOYhEK1BtWXM+JuQL0aGCcoI4GUcfl0o+zE04zCAEwrzeGEGarcJf/vohSqpqUh4yk0kj59YTcDAtV97uTQJZ1OUj7V7NNrkzPeRdkoO1i9CD7Okafs7T+/kYrq6II/kx+fwjVMwnsZtWa3pjQ7jpbi0+ckpoQwByTEIiRH22bKbTilb7ug02gPTJBcVs8FbcOmUt2wxX7RCJCYHd8EvyIigJe2EUIXAjSlnpw3f2UGG2lqbE2Gk79aUx1tFgZ+50JwdN1Sp9DceyY8eyGLZrBdnG7/dVct67o594WO+Z/7HibF0MdLUnSvcAlwSoyusPJgujLfqt98T3t9sW3s0A1rI0ADM4KDbd2oSX18YMkFo8CeY/VPLMnZCKEEWyv+I9IEIvhZBv3TqjV9uE+HorwuHo+PNbf3//GZs/Rjv0MYhCqavCzRNQFRLuiAe/X65P4TOodx4JU3exDmdU+8+rdru2G0+GCGIdKuwurEmkiISoCA+CYo/ax0C2tEgI1mrF1PZ4nKPtxXMkTZoLjygY11kArfjV9z1/C3FENEg9yPcVWBd38Lso82LO7XVFvP3OyJOhTDRufDydclNiCwSI2tjBY5K9gKX9iYKLeXp0WLJAXI8YTmrV17TgDWyW+pXFAH6Bn0JFgjuUMhvE4uxoTsRQMHxab+66MRi+l/ywnIz/g76qgxPUFP6eJVnKzHKOI7blIqpEgrnK+3Ot0gpSs5HAlHBGlhAgBFn8nCfFjGvx3ESwHSsKKh15GthxUj/qZAceZiNgtXM8QSqt7MKDa6JD8Al/JtgT2AYyqSI0MyAhzmKMdyEd0RAj+4de4gv64m1zqBC/varU0zOlgkXnDluSz4fBul4DidAzbiZ0e0Fw9yJOjK3OSh+dB2qPqNViXh/n2MPxT4eqFXbwLbtDm+q18rA4cyBpygXu32wSAong9qpirXc8wsSGnp5lDrogE6Etz+qeGiOblapD14Dq1VzRBrMz7xVJRCDeT0Vz+ZHDU5e8iKj2TgdHSwwW/WLCHL0lsKBPOTSW/acBaklbYHgrzRAuHhkaLWEb8TaSGPpvrQXO23KBBEPcX7PKpnrKUVxmS3RYWY/UE0TKTs+0XTgGuLxsI7jZaYRj/NU6RLiRE3n54ZZl2RiwfyPGFfoyC7jaV2g4U8SJCrurZZqjsWeXn/7jugTkb72xTCj6SuQrtE6NzYKBJ5X/YHufr2TqmpvwgVZAd/prhDFhtyAApIMJADbFSdN3Mhw+3dpwcpnHbNkhfDK5U22qs5PG8PxfpDteWhBgAypMiBFSG/aCMlPNTujllAtdZXKNnjeipjF17cTpnJ2yKGOHa4V8Ggqy5mEXafq1xEIJd0+I7N3fcNZ2VGqCtfnWTuyaaNyHWIpgOJqFqs1k8Gyqk5nkHcVbIdaaENdMVQYj0dZX6iUKoOWCXwI4Y8eAhNg4Huahx+3j7QBpjQnUKBVZRwc0vy4x2RXoNgv9lN1+Y2Bb5Pz6EiszAWBpOhfkIxwqxCBfpWo632h34ia4gWHQJ33/RTgrLFv9nY4S4Er5/+1s9cQ/zen0SUl4YXh7n1wQQatLSVb6J6BdyopKowLFkyZIlS5YsWbJkyZIlS5YsWbJkKS/0Ou7lPh8nTUI/AAAAEnRFWHRFWElGOk9yaWVudGF0aW9uADGEWOzvAAAAAElFTkSuQmCC" alt="KI logo"></a><button class="toggle"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path></svg></button></div><ul class="navbar-links opened"><li class="navbar-link"><a href="http://localhost:3000/">HOME</a></li><li class="navbar-link"><a href="http://localhost:3000/" class="toggleSubMenu">SHOP<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></a></li><li class="navbar-link"><a href="http://localhost:3000/">PERSONAL SHOPPING</a></li><li class="navbar-link"><a href="http://localhost:3000/">STORY</a></li><li class="navbar-link"><a href="http://localhost:3000/">INSTAGRAM</a></li></ul></div><div class="flex-item-right"><ul class="navbar-links opened"><li class="navbar-link"><a href="http://localhost:3000/"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></a></li><li class="navbar-link"><a href="http://localhost:3000/"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></li></ul></div></nav><div class="Hero"><div class="heroTxt"><p>Après des semaines de recherches et d'attente, les produits sélectionnés pour Noël sont enfin disponibles ! Mes artisans aux super pouvoirs ont travaillé dur pour créer ou recréer une série de produits, tous plus beaux les uns que les autres. En espérant que tous ces nouveaux objets vous plairont, je vous embrasse ! Laetitia</p><a class="btn btn-info black btn-lg" href="http://localhost:3000/collections/selection-de-noel"><span>DÉCOUVRIR</span></a></div></div><div class="BannerColumn home-banners"><div class="banner-item"><div class="overlay"><div class="banner-hover"></div><img class="lazy" src="./React App_files/IMG_4848.jpg" alt=""></div></div><div class="banner-item"><div class="overlay"><div class="banner-hover"></div><img class="lazy" src="./React App_files/IMG_4913.jpg" alt=""></div></div><div class="banner-item"><div class="overlay"><div class="banner-hover"></div><img class="lazy" src="./React App_files/IMG_4854.jpg" alt=""></div></div></div><div class="Selection"><div class="flex-item-centre tab_title"><h2 class="title">La sélection de Ki</h2><p></p></div><div class="flex-item-center"><ul class="slider-tab flex-item"><li id="tab_1566187898855_products_grid" class="active first"><a href="http://localhost:3000/"><span>Noël</span></a></li><li id="tab_1566212704328_products_grid" class=""><a href="http://localhost:3000/"><span>Nouveautés</span></a></li><li id="tab_1571027001277_products_grid" class=""><a href="http://localhost:3000/"><span>Petits Prix</span></a></li></ul></div><div class="flex-item-center"><div class="ProductGrid"><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4869_large.jpg" alt="Grande statue Timor"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4962_large.jpg" alt="Grande Boite à Offrandes balinaise en perles et coquillages Bukit"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4807_large.jpg" alt="Panier en corde et petits coquillages"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4839_large.jpg" alt="Collier Papou Jerami en coquillages et paille naturelle"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4825_large.jpg" alt="Collier Papou Matahari orné de raphia"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4737_large.jpg" alt="Statue Timor en bois blanchi"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4811_large.jpg" alt="Suspension cauris"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4914_large.jpg" alt="Panière en bambou et rotin blanchie"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4828_large.jpg" alt="Décoration murale en rotin et coquillages"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4795_large.jpg" alt="Grand collier ethnique en perles de bois"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4791_large.jpg" alt="Collier balinais en perles de bois et coquillages"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4778_large.jpg" alt="Totem coquillages Mata Uang"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4734_large.jpg" alt="Disque bois sculpté Timor"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4896_large.jpg" alt="Bougeoir en coquillages Mawar"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4858_large.jpg" alt="Grande statue à pique Timor"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4813_large.jpg" alt="Bougeoir en coquillages Kemboja"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4754_large.jpg" alt="Collier Papou en coquillages et plumes blanc Jelas"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4743_large.jpg" alt="Plateau en bois blanchi Baki"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4801_large.jpg" alt="Décoration en paille Matahari"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div><div class="product"><div class="item-product-image-box"><a class="product-image" href="http://localhost:3000/" title="Grande statue Timor"><div class="product-img-additional back"><img class="lazy" src="./React App_files/IMG_4768_large.jpg" alt="Disque en marbre Java"></div></a><div class="product-hover-box hidden-xs"><a class="detail_view" href="http://localhost:3000/"></a></div></div><h3 class="product-name"><a href="http://localhost:3000/" title="Grande statue Timor">Grande statue Timor</a></h3><div class="price-box"><p class="special-price"><span class="price">42,00€</span></p></div><div class="novaworks-quick-act"><a href="http://localhost:3000/" title="Add to cart" class="ajaxcart_simple button-ajax-cart-id-31058007982122"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg></a></div></div></div></div></div><div class="Newsletter"><div class="form-subscribe"><div class="input-box"><input id="newsletter" name="contact[email]" type="text" placeholder="Email pour newsletter..." title="EMAIL POUR NEWSLETTERS" class="input-text"><button type="submit" name="subscribe" title="Subscribe" class="button newsletter"><span><span>ENVOYER</span></span></button></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./React App_files/bundle.js.téléchargement"></script><script src="./React App_files/1.chunk.js.téléchargement"></script><script src="./React App_files/main.chunk.js.téléchargement"></script><script src="./React App_files/main.bcb8f4cb45c0b215fb0d.hot-update.js.téléchargement"></script>
+
+</body></html>
