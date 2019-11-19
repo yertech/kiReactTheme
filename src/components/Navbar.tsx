@@ -49,10 +49,20 @@ const Navbar: React.FC = () => {
               <a href=".">HOME</a>
             </li>
             <li className="navbar-link">
-              <a href="/" className="toggleSubMenu" onClick={toggleSubMenu}>
+              <a className="toggleSubMenu" onClick={toggleSubMenu}>
                 SHOP
                 {isShopMenuOpen ? <MdExpandLess /> : <MdExpandMore />}
               </a>
+              <ul
+                className={
+                  "navbar-sublinks " + (isShopMenuOpen ? "opened" : "closed")
+                }
+              >
+                <li className="navbar-sublink">Test</li>
+                <li className="navbar-sublink">Test</li>
+                <li className="navbar-sublink">Test</li>
+                <li className="navbar-sublink">Test</li>
+              </ul>
             </li>
             <li className="navbar-link">
               <a href=".">PERSONAL SHOPPING</a>

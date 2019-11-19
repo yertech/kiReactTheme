@@ -26,18 +26,15 @@ const ProductGrid: React.FC<ProductProps> = ({ src, alt }) => {
         </a>
       </h3>
       <div className="price-box">
-        <p className="special-price">
-          <span className="price">42,00€</span>
+        <p className="special-price c--anim-btn">
+          <span className="price c-anim-btn">42,00€</span>
+          <span>
+            {" "}
+            <a href="/" title="Add to cart" className="addToCart">
+              AJOUT AU PANIER
+            </a>
+          </span>
         </p>
-      </div>
-      <div className="novaworks-quick-act">
-        <a
-          href="/"
-          title="Add to cart"
-          className="ajaxcart_simple button-ajax-cart-id-31058007982122"
-        >
-          <MdShoppingCart />
-        </a>
       </div>
     </div>
   );

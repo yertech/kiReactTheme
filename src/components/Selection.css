@@ -57,6 +57,9 @@ ul.slider-tab li:hover a {
 .flex-item-centre.tab_title {
   margin-bottom: 15px;
 }
+ul.slider-tab.flex-item {
+  margin-bottom: 30px;
+}
 
 @media screen and (max-width: 1024px) {
   .slider-tab.flex-item,
