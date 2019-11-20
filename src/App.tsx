@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import BannerColumn from "./components/BannerColumn";
 import Selection from "./components/Selection";
 import Newsletter from "./components/Newsletter";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       <BannerColumn />
       <Selection />
       <Newsletter />
+      <Footer />
     </div>
   );
 };
